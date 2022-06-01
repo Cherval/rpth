@@ -1,0 +1,825 @@
+.wolf {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background-color: rgb(34,27, 24);
+background-image: url("https://i.imgur.com/EtVRkAe.png") , url("https://i.imgur.com/bIAYZ6H.png") , url(""), url(""), url("https://i.imgur.com/rdabn9a.png")  , 
+url("https://i.imgur.com/FFe5Ucc.png") , 
+url("https://i.imgur.com/UXE7bxS.png") , 
+url("https://i.imgur.com/lhpkW2D.png"), 
+url("https://i.imgur.com/q8BWpSk.png") , 
+url("https://i.imgur.com/GlkvEAY.png") , none;
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto;
+color: rgb(237, 237, 237);
+cursor: default;
+font-family: 'Raleway', 'Montserrat', 'Harmattan', 'Niramit', 'Nanum Gothic Coding', 'Noto Serif SC', 'M PLUS Rounded 1c', Tahoma, Helvetica, Geneva, sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 400;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 50px;
+}
+
+.winter2020 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background-color: rgb(32,37, 39);
+background-image: url("https://i.imgur.com/YIjR8Pc.jpg") , url("https://i.imgur.com/JWd7zOf.jpg") , url(""), url(""), url("https://i.imgur.com/DTlSAxf.jpg")  , 
+url("https://i.imgur.com/jr1rKIo.jpg") , 
+url("https://i.imgur.com/WIKSflp.jpg") , 
+url("https://i.imgur.com/ryPyCQ4.jpg"), 
+url("https://i.imgur.com/ZhsCwJN.jpg") , 
+url("https://i.imgur.com/bACpCTt.jpg") , none;
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto;
+color: rgb(237, 237, 237);
+cursor: default;
+font-family: 'Raleway', 'Montserrat', 'Harmattan', 'Niramit', 'Nanum Gothic Coding', 'Noto Serif SC', 'M PLUS Rounded 1c', Tahoma, Helvetica, Geneva, sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 400;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 50px;
+}
+
+.grand2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background-color: rgb(11, 16, 14);
+background-image: url("https://i.imgur.com/7zQf5XN.jpg") , url("https://i.imgur.com/6wyqGpy.jpg") , url("https://i.imgur.com/neHNYBV.jpg"), url("https://i.imgur.com/TGMyY1x.jpg"), url("https://i.imgur.com/imEi3gj.jpg")  , 
+url("https://i.imgur.com/tYhcWpF.jpg") , 
+url("https://i.imgur.com/3OFEHEt.jpg") , 
+url("https://i.imgur.com/HnoGpVx.jpg"), 
+url("https://i.imgur.com/DGpyM05.jpg") , 
+url("https://i.imgur.com/0WtbEgR.jpg") , none;
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto;
+color: rgb(237, 237, 237);
+cursor: default;
+font-family: 'Raleway', 'Montserrat', 'Harmattan', 'Niramit', 'Nanum Gothic Coding', 'Noto Serif SC', 'M PLUS Rounded 1c', Tahoma, Helvetica, Geneva, sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 400;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.love2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background-color: rgb(129, 38, 45);
+background-image: url("https://i.imgur.com/LZtVVuB.jpg") , url("https://i.imgur.com/7aRjcyg.jpg") , url("https://i.imgur.com/19OkaBr.jpg"), url("https://i.imgur.com/czxBLg3.jpg"), url("https://i.imgur.com/SxeM4Rv.jpg")  , 
+url("https://i.imgur.com/62ZI8sW.jpg") , 
+url("https://i.imgur.com/hBxPBDb.jpg") , 
+url("https://i.imgur.com/Sz5LBPZ.jpg"), 
+url("https://i.imgur.com/lNOWFP6.jpg") , 
+url("https://i.imgur.com/rAKpTpp.jpg") , none;
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto;
+color: rgb(237, 237, 237);
+cursor: default;
+font-family: 'Coming Soon', 'Montserrat', 'Harmattan', 'Niramit', 'Nanum Gothic Coding', 'Noto Serif SC', 'M PLUS Rounded 1c', Tahoma, Helvetica, Geneva, sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 400;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.dhara2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background-color: rgb(0, 0, 0);
+background-image: url("https://i.imgur.com/06EDQ10.jpg") , url("https://i.imgur.com/3Gv5nmc.jpg") , url("https://i.imgur.com/r5bS6ab.jpg"), url("https://i.imgur.com/vqletXd.jpg"), url("https://i.imgur.com/4541SB7.jpg")  , 
+url("https://i.imgur.com/NMiqDUa.jpg") , 
+url("https://i.imgur.com/vjTvjiF.jpg") , 
+url("https://i.imgur.com/I4pkphR.jpg"), 
+url("https://i.imgur.com/8nlzyap.jpg") , 
+url("https://i.imgur.com/y2ziIrR.jpg") , none;
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto;
+color: rgb(237, 237, 237);
+cursor: default;
+font-family: 'Prompt', 'Mukta', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 200;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.quidditch2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: url('https://i.imgur.com/veN2U7G.png');
+background-image: url("https://i.imgur.com/EURzJRW.png") , url("https://i.imgur.com/9zUVDM4.png") , url(""), url(""), url("https://i.imgur.com/BtokPTd.png")  , 
+url("https://i.imgur.com/BCpfXzK.png") , 
+url("https://i.imgur.com/cpWww7B.png") , 
+url("https://i.imgur.com/cDOfkvr.png"), 
+url("https://i.imgur.com/X1R5Zlr.png") , 
+url("https://i.imgur.com/jXkWEBH.png") , url('https://i.imgur.com/veN2U7G.png');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto;
+color: rgb(246, 237, 217);
+cursor: default;
+font-family: 'Bai Jamjuree', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 200;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.herb2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: url('https://i.imgur.com/Too7cHD.jpg');
+background-image: url("https://i.imgur.com/Qhyw4SF.png") , url("https://i.imgur.com/XJaMh9C.png") , url(""), url(""), url("https://i.imgur.com/b7S3RoR.png")  , 
+url("https://i.imgur.com/c8C8RMb.png") , 
+url("https://i.imgur.com/h3gPFGl.png") , 
+url("https://i.imgur.com/cMZ4viz.png"), 
+url("https://i.imgur.com/uxF9IoU.png") , 
+url("https://i.imgur.com/VVQcmkL.png") , url('https://i.imgur.com/Too7cHD.jpg');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto;
+color: rgb(246, 237, 217);
+cursor: default;
+font-family: 'Bai Jamjuree', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 200;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+.crystal2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: url('https://i.imgur.com/mcW8wDD.jpg');
+background-image: url("https://i.imgur.com/ZVAwqWQ.png") , url("https://i.imgur.com/kdtesu3.png") , url("https://i.imgur.com/bOCIBzn.png"), url("https://i.imgur.com/8N59ZzN.png"), url("https://i.imgur.com/W09VZeT.png")  , 
+url("https://i.imgur.com/zbDKt2L.png") , 
+url("https://i.imgur.com/ffAzzIL.png") , 
+url("https://i.imgur.com/AzxMKHa.png"), 
+url("https://i.imgur.com/Q5KXSXe.png") , 
+url("https://i.imgur.com/3QeKJ0e.png") , url('https://i.imgur.com/mcW8wDD.jpg');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto;
+color: rgb(246, 237, 217);
+cursor: default;
+font-family: 'Bai Jamjuree', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 200;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.choco2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: #130a06;
+background-image: url("https://i.imgur.com/yUqOclo.png") , url("https://i.imgur.com/G6GO4p4.png") , url("https://i.imgur.com/C7vZaxb.png"), url("https://i.imgur.com/vg9J0Vt.png"), url("https://i.imgur.com/ygBhDke.png")  , 
+url("https://i.imgur.com/FdgYLUn.png") , 
+url("https://i.imgur.com/1m0k6RK.png") , 
+url("https://i.imgur.com/jZFohzr.png"), 
+url("https://i.imgur.com/Y8RWOz0.png") , 
+url("https://i.imgur.com/3r7zUV4.png") , url('https://i.imgur.com/Bxhc2t5.jpg');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto;
+color: rgb(246, 237, 217);
+cursor: default;
+font-family: 'Bai Jamjuree', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 200;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;}
+
+.hunter2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: #403225;
+background-image: url("https://i.imgur.com/claGDDg.jpg") , url("https://i.imgur.com/Ml83LEm.jpg") , url(""), url(""), url("https://i.imgur.com/kAQQ3I7.jpg")  , 
+url("https://i.imgur.com/b075Ohf.jpg") , 
+url("https://i.imgur.com/5k1eipo.jpg") , 
+url("https://i.imgur.com/REAIl0t.jpg"), 
+url("https://i.imgur.com/er5mGrz.jpg") , 
+url("https://i.imgur.com/yLSqSed.jpg") , url('');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto;
+color: rgb(246, 237, 217);
+cursor: default;
+font-family: 'Raleway', 'Montserrat', 'Harmattan', 'Niramit', 'Nanum Gothic Coding', 'Noto Serif SC', 'M PLUS Rounded 1c', Tahoma, Helvetica, Geneva, sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 200;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.autumn2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: #1f1613;
+background-image: url("https://i.imgur.com/qHGAa3F.png") , url("https://i.imgur.com/AbrweyW.png"), url(""), url(""), url("https://i.imgur.com/F8b8mIK.png"), 
+url("https://i.imgur.com/0VIlDkc.png"), 
+url("https://i.imgur.com/qnoPnzT.png"), 
+url("https://i.imgur.com/2tqgQmn.png"), 
+url("https://i.imgur.com/idKYMyh.png"), 
+url("https://i.imgur.com/opNet5Z.png"), url('https://i.imgur.com/U1PC6nN.png');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, cover;
+color: rgb(246, 237, 217);
+cursor: default;
+font-family: 'Sarabun', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 100;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.samhain2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: #171942;
+background-image: url("https://i.imgur.com/rd24iMC.png") , url("https://i.imgur.com/ZK7nlTP.png"), url("https://i.imgur.com/LXrw4qv.png"), url("https://i.imgur.com/Txu1mLN.png"), url("https://i.imgur.com/LSlUKhI.png"), 
+url("https://i.imgur.com/fObHhuW.png"), 
+url("https://i.imgur.com/0saz446.png"), 
+url("https://i.imgur.com/itK8nLw.png"), 
+url("https://i.imgur.com/keD3CK6.png"), 
+url("https://i.imgur.com/gGUaYNE.png"), url('https://i.imgur.com/OSGlIaF.jpg');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat-x;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto;
+color: rgb(246, 237, 217);
+cursor: default;
+font-family: 'Sarabun', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 100;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.all-soul2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: #141414;
+background-image: url("https://media.discordapp.net/attachments/778284963598565377/897874409862352936/all-soul-all-saint-box_01.png") , url("https://media.discordapp.net/attachments/778284963598565377/897874415105220628/all-soul-all-saint-box_03.png"), url("https://media.discordapp.net/attachments/778284963598565377/897874408595664966/all-soul-all-saint-box_11.png"), url("https://media.discordapp.net/attachments/778284963598565377/897874411535863878/all-soul-all-saint-box_02.png"), url("https://media.discordapp.net/attachments/778284963598565377/897874411535863878/all-soul-all-saint-box_02.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/897874405324128276/all-soul-all-saint-box_09.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/897874407404482601/all-soul-all-saint-box_10.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/897874408595664966/all-soul-all-saint-box_11.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/897874417194008618/all-soul-all-saint-box_05.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/897874418984955944/all-soul-all-saint-box_08.png"), url('');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat-x;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto;
+color: rgb(203, 203, 203);
+cursor: default;
+font-family: 'Sarabun', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 100;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.all-saint2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: #d3d3d3;
+background-image: url("https://media.discordapp.net/attachments/778284963598565377/897880849918345236/all-soul-all-saint-box-angel_01.png") , url("https://media.discordapp.net/attachments/778284963598565377/897880854192324638/all-soul-all-saint-box-angel_03.png"), url("https://media.discordapp.net/attachments/778284963598565377/897874408595664966/all-soul-all-saint-box_11.png"), url("https://media.discordapp.net/attachments/778284963598565377/897874411535863878/all-soul-all-saint-box_02.png"), url("https://media.discordapp.net/attachments/778284963598565377/897874411535863878/all-soul-all-saint-box_02.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/897880860173434900/all-soul-all-saint-box-angel_09.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/897874407404482601/all-soul-all-saint-box_10.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/897874408595664966/all-soul-all-saint-box_11.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/897874417194008618/all-soul-all-saint-box_05.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/897874418984955944/all-soul-all-saint-box_08.png"), url('');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat-x;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto;
+color: rgb(0, 0, 0);
+cursor: default;
+font-family: 'Sarabun', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 100;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.game2021 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: #141414;
+background-image: url("https://media.discordapp.net/attachments/778284963598565377/913788877729316875/squid-game2021_01.png") , url("https://media.discordapp.net/attachments/778284963598565377/913788877540581386/squid-game2021_03.png"), url("https://media.discordapp.net/attachments/778284963598565377/913788924944605194/squid-game2021_11.png"), url("https://media.discordapp.net/attachments/778284963598565377/913788877918064710/squid-game2021_02.png"), url("https://media.discordapp.net/attachments/778284963598565377/913788924596453376/squid-game2021-center_02.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/913788901238374450/squid-game2021_08.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/913788924760051732/squid-game2021_10.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/913788924944605194/squid-game2021_11.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/913788901469085716/squid-game2021_05.png"), 
+url("https://media.discordapp.net/attachments/778284963598565377/913788901649424445/squid-game2021_07.png"), url('https://media.discordapp.net/attachments/778284963598565377/913788966136860722/squid-bg.png');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat-x;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, cover;
+color: rgb(203, 203, 203);
+cursor: default;
+font-family: 'Sarabun', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 100;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.aurora2022 {
+	background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: #031e31;
+background-image: url("https://i.imgur.com/UcOGD7C.png") , url("https://i.imgur.com/T5wANFh.png"), url("https://i.imgur.com/j5doLAJ.png"), url("https://i.imgur.com/wLF3KUF.png"), url("https://i.imgur.com/3ZFffZv.png"), 
+url("https://i.imgur.com/wmZrKTJ.png"), 
+url("https://i.imgur.com/PlPUZy7.png"), 
+url("https://i.imgur.com/M3ggziL.png"), 
+url("https://i.imgur.com/v8Zm37x.png"), 
+url("https://i.imgur.com/tFM1rwE.png"), url('');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat-x;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, cover;
+color: rgb(203, 203, 203);
+cursor: default;
+font-family: 'Sarabun', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 100;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.lunar2022 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: #080b17;
+background-image: url("https://i.imgur.com/SdxL7rR.png") , url("https://i.imgur.com/KT1gXKa.png"), url(""), url(""), url("https://i.imgur.com/xuCFvO3.png"), 
+url("https://i.imgur.com/Voq0HLS.png"), 
+url("https://i.imgur.com/esVy8aH.png"), 
+url("https://i.imgur.com/VHt5iEv.png"), 
+url("https://i.imgur.com/zMtQARm.png"), 
+url("https://i.imgur.com/ccPCCNu.png"), url('https://i.imgur.com/D64EqTB.png'),url(https://i.imgur.com/0zKAJBs.png);
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 100% 100%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 100%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat-x, no-repeat;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto, cover;
+color: #ffe177;
+cursor: default;
+font-family: 'Sarabun', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 100;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
+
+.lilac2022 {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box, border-box;
+background: #14110e;
+background-image: url("https://i.imgur.com/kGrpwnE.png") , url("https://i.imgur.com/9j6Ba0A.png"), url(""), url(""), url("https://i.imgur.com/f4TqWI9.png"), 
+url("https://i.imgur.com/Kby5V8Z.png"), 
+url("https://i.imgur.com/hxK61q5.png"), 
+url("https://i.imgur.com/UTK21dc.png"), 
+url("https://i.imgur.com/mxvWJNX.png"), 
+url("https://i.imgur.com/hlrkXim.png"), url('https://i.imgur.com/I1tE30j.png');
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0% 0%, 100% 0%, 50% 100%, 50% 0%, 50% 0%, 0% 100%, 100% 100%, 50% 100%, 0% 50%, 100% 50%, 0% 0%;
+background-position-x: 0%, 100%, 50%, 50%, 50%, 0%, 100%, 50%, 0%, 100%, 0%;
+background-position-y: 0%, 0%, 100%, 0%, 0%, 100%, 100%, 100%, 50%, 50%, 0%;
+background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y, repeat-x;
+background-size: auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto auto, auto;
+color: rgb(234, 214, 255);
+cursor: default;
+font-family: 'Sarabun', sans-serif;
+font-feature-settings: normal;
+font-kerning: auto;
+font-language-override: normal;
+font-size: 16px;
+font-size-adjust: none;
+font-stretch: normal;
+font-style: normal;
+font-variant: normal;
+font-variant-alternates: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-variant-position: normal;
+font-weight: 100;
+line-height: 34px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-wrap: break-word;
+padding-bottom: 58px;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 60px;
+}
