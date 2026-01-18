@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabletop Online - Legend Edition</title>
+
+    <!-- CDN Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Kanit:wght@300;400&family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+    <style>
+        body {
+            font-family: 'Sarabun', 'Kanit', sans-serif;
+            background: #020617;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        .game-title { font-family: 'Cinzel', serif; }
+        [v-cloak] { display: none; }
+
+        /* Map System */
+        .map-wrapper {
+            aspect-ratio: 1/1;
+            position: relative;
+            overflow: auto;
+            border: 4px solid #1e293b;
+            background: #000;
+        }
+        .grid-layer {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(12, 1fr);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+        .cell {
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            transition: all 0.1s;
+            box-sizing: border-box;
+        }
+
+        /* Status Colors */
+        .cell-locked-others { background: rgba(0,0,0,0.85); cursor: not-allowed; }
+        .cell-admin-view { border: 1px solid rgba(239, 68, 68, 0.5) !important; }
+
+        /* Territory Borders */
+        .border-t-owner { border-top: 2px solid #22c55e !important; }
+        .border-b-owner { border-bottom: 2px solid #22c55e !important; }
+        .border-l-owner { border-left: 2px solid #22c55e !important; }
+        .border-r-owner { border-right: 2px solid #22c55e !important; }
+
+        /* Avatar Effects */
+        .avatar-container {
+            width: 85%;
+            height: 85%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .avatar-img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+            position: relative;
+            border: 2px solid #fbbf24;
+        }
+        .glow-effect {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            filter: blur(8px);
+            z-index: 1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+
+        .modal-bg {
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(4px);
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <!-- Toast Notification -->
+        <transition name="fade">
+            <div v-if="toastState.show" :class="['fixed z-[200] top-6 left-1/2 -translate-x-1/2 px-6 py-3 rounded-xl shadow-2xl font-bold text-sm',
+                toastState.type === 'success' ? 'bg-green-600 text-white' :
+                toastState.type === 'error' ? 'bg-red-600 text-white' :
+                toastState.type === 'danger' ? 'bg-red-700 text-white' :
+                'bg-slate-800 text-yellow-300']"
+                style="min-width:220px; max-width:90vw; text-align:center; pointer-events:auto;">
+                {{ toastState.message }}
+            </div>
+        </transition>
+        <!-- Loading Screen -->
+        <div v-if="loading" class="min-h-screen flex items-center justify-center bg-slate-900">
+            <div class="text-center">
+                <div class="loading-spinner mx-auto mb-4"></div>
+                <p class="text-slate-400">{{ loadingMessage }}</p>
+            </div>
+        </div>
+
+        <!-- Error Screen -->
+        <div v-else-if="error" class="min-h-screen flex items-center justify-center bg-slate-900">
+            <div class="text-center bg-slate-800 p-8 rounded-xl border border-red-600 max-w-md">
+                <h2 class="text-red-500 text-xl font-bold mb-4">เกิดข้อผิดพลาด</h2>
+                <p class="text-slate-300 mb-4">{{ error }}</p>
+                <button @click="retryLoad" class="bg-red-600 px-4 py-2 rounded hover:bg-red-500">
+                    ลองใหม่
+                </button>
+            </div>
+        </div>
+
+        <!-- Main App -->
+        <div v-else>
+            <!-- Navigation -->
+            <nav class="bg-slate-900 border-b border-slate-800 p-4 flex justify-between items-center sticky top-0 z-50 shadow-2xl">
+                <h1 class="game-title text-xl text-yellow-500 tracking-widest">TABLETOP WORLD</h1>
+                <div class="flex gap-4 items-center">
+                    <div v-if="profile" @click="showModal('profile')" class="flex items-center gap-2 cursor-pointer bg-slate-800 py-1 px-3 rounded-full border border-slate-700">
+                        <img :src="profile.avatar_url" class="w-6 h-6 rounded-full object-cover" @error="handleImageError">
+                        <span class="text-xs font-bold">{{ profile.character_name }}</span>
+                    </div>
+                    <button v-if="isAdmin" @click="showModal('manageMaps')" class="bg-purple-600 px-4 py-1 rounded text-xs font-bold hover:bg-purple-500 transition-all">
+                        จัดการแผนที่
+                    </button>
+                    <button v-if="!user" @click="showModal('login')" class="bg-yellow-600 px-4 py-1 rounded text-xs font-bold hover:bg-yellow-500 transition-all">
+                        LOGIN
+                    </button>
+                    <button v-else @click="logout" class="text-slate-500 text-xs hover:text-red-400 transition-colors">
+                        Logout
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="p-4 max-w-4xl mx-auto">
+                <div v-if="!currentMap" class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                    <div v-if="maps.length === 0" class="col-span-full text-center py-12">
+                        <p class="text-slate-500 text-lg">ไม่พบแผนที่</p>
+                    </div>
+                    <div v-for="map in maps" :key="map.id" @click="selectMap(map)"
+                         class="relative bg-slate-900 rounded-xl overflow-hidden cursor-pointer border border-slate-800 hover:border-yellow-500 transition-all shadow-xl">
+
+                        <div v-if="profile?.current_map_id === map.id && profile?.current_x !== null"
+                             class="absolute top-3 right-3 bg-green-600 text-[10px] px-2 py-1 rounded-md font-bold shadow-lg z-10">
+                             YOU ARE HERE
+                        </div>
+
+                        <img :src="map.image_url" class="h-48 w-full object-cover opacity-80" @error="handleImageError">
+                        <div class="p-4">
+                            <h3 class="game-title text-yellow-500">{{ map.name }}</h3>
+                            <p class="text-slate-500 text-xs mt-1">{{ map.description }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map View -->
+                <div v-else class="animate-fadeIn">
+                    <div class="flex justify-between items-center mb-4">
+                        <button @click="exitMap" class="text-sm text-yellow-600 font-bold hover:underline">
+                            ← EXIT MAP
+                        </button>
+                        <h2 class="game-title text-lg text-white leading-none">{{ currentMap.name }}</h2>
+                    </div>
+
+                    <div class="map-wrapper rounded-lg shadow-2xl border-slate-800">
+                        <img :src="currentMap.image_url" class="absolute inset-0 w-full h-full object-cover opacity-60" @error="handleImageError">
+                        <div class="grid-layer">
+                            <div v-for="cell in cells" :key="cell.x + '-' + cell.y"
+                                 @click="onCellClick(cell)"
+                                 :class="getCellClass(cell)"
+                                 class="cell flex items-center justify-center">
+
+                                <!-- Lock Icon -->
+                                <span v-if="cell.is_locked && !cell.occupant" class="opacity-30 text-[10px]">🔒</span>
+
+                                <div v-if="cell.occupant" class="avatar-container">
+                                    <div v-if="cell.occupant.decoration?.type === 'glow'"
+                                         class="glow-effect"
+                                         :style="{ background: cell.occupant.decoration.style_config?.color || '#fbbf24' }"></div>
+                                    <img :src="cell.occupant.avatar_url" class="avatar-img shadow-lg" @error="handleImageError">
+                                </div>
+                            </div>
+
+                            <!-- Territory Owner Labels -->
+                            <div v-for="territory in territories" :key="territory.id"
+                                 :style="{ position: 'absolute', left: territory.displayX * 50 + 'px', top: territory.displayY * 50 + 'px', width: '50px', height: '50px', pointerEvents: 'auto' }"
+                                 class="flex items-start justify-start p-1">
+                                <div class="bg-black/70 text-[8px] text-center py-0.5 px-1 rounded font-bold text-white truncate max-w-full cursor-pointer hover:bg-black/90 transition-colors"
+                                     @click="showOwnerDetail(territory)">
+                                    {{ territory.owner_name }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admin Controls -->
+                    <div v-if="isAdmin" class="mt-6 flex flex-wrap gap-2 justify-center">
+                        <button @click="toggleTerritoryMode"
+                                :class="adminMode === 'territory' ? 'bg-green-600 border-white' : 'bg-slate-800 border-white/10'"
+                                class="px-4 py-2 rounded-lg text-xs font-bold border shadow-lg transition-all">
+                            {{ adminMode === 'territory' ? 'กำลังเลือกพิกัด...' : '🏘️ มอบกรรมสิทธิ์' }}
+                        </button>
+                        <button @click="showModal('decoManager')" class="bg-slate-800 px-4 py-2 rounded-lg text-xs font-bold border border-white/10 hover:border-yellow-500 shadow-lg transition-all">
+                            ✨ ตกแต่งตัวละคร
+                        </button>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Modals -->
+            <!-- Login Modal -->
+            <div v-if="activeModal === 'login'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-sm rounded-2xl p-6 shadow-2xl">
+                    <h3 class="game-title text-yellow-500 text-center mb-6 text-xl tracking-widest">LOG IN</h3>
+                    <div class="space-y-4">
+                        <input v-model="loginForm.email" type="email" placeholder="Email" class="w-full bg-slate-800 p-3 rounded-xl text-sm outline-none border border-slate-700 focus:border-yellow-600">
+                        <input v-model="loginForm.password" type="password" placeholder="Password" class="w-full bg-slate-800 p-3 rounded-xl text-sm outline-none border border-slate-700 focus:border-yellow-600">
+                        <button @click="login" class="w-full bg-yellow-600 py-3 rounded-xl font-bold text-sm shadow-lg hover:bg-yellow-500 transition-all active:scale-95">
+                            ENTER THE WORLD
+                        </button>
+                        <button @click="closeModal" class="w-full text-slate-500 text-sm mt-2 hover:text-slate-400">
+                            ยกเลิก
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cell Detail Modal -->
+            <div v-if="activeModal === 'cellDetail'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-sm rounded-2xl p-6 shadow-2xl">
+                    <h3 class="game-title text-yellow-500 text-center mb-4 italic">
+                        ข้อมูลพิกัด ({{ activeCell.x }}, {{ activeCell.y }})
+                    </h3>
+                    <div class="space-y-4">
+                        <div v-if="activeCell.owner_id" class="bg-slate-800/50 p-3 rounded-xl border border-slate-700">
+                            <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">ผู้ถือครองกรรมสิทธิ์</p>
+                            <div class="flex items-center gap-2">
+                                <span class="text-green-500 text-sm">🏰</span>
+                                <p class="text-sm font-bold text-white">{{ activeCell.owner_name }}</p>
+                            </div>
+                        </div>
+
+                        <div v-if="activeCell.occupant" class="bg-slate-800/50 p-3 rounded-xl border border-slate-700">
+                            <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">ผู้ที่อยู่ในพื้นที่</p>
+                            <div class="flex items-center gap-3">
+                                <img :src="activeCell.occupant.avatar_url" class="w-8 h-8 rounded-full object-cover border border-yellow-500" @error="handleImageError">
+                                <p class="text-sm font-bold text-white">{{ activeCell.occupant.character_name }}</p>
+                            </div>
+                        </div>
+
+                        <p v-if="!activeCell.occupant && !activeCell.owner_id" class="text-center text-slate-500 text-sm italic py-2">
+                            พื้นที่ว่างเปล่า
+                        </p>
+
+                        <div class="grid grid-cols-1 gap-2 pt-2">
+                            <button v-if="canJoinCell" @click="placeCharacter(activeCell)" class="bg-green-600 py-3 rounded-xl font-bold text-sm hover:bg-green-500">
+                                วางตัวละครที่นี่
+                            </button>
+                            <button v-if="isMyCharacterHere" @click="removeCharacter" class="bg-red-900 py-3 rounded-xl font-bold text-sm hover:bg-red-800">
+                                นำตัวละครออก
+                            </button>
+                            <button v-if="isMyTerritory" @click="toggleLock" class="bg-blue-600 py-3 rounded-xl font-bold text-sm">
+                                {{ activeCell.is_locked ? '🔓 ปลดล็อคพื้นที่' : '🔒 ล็อคพื้นที่' }}
+                            </button>
+
+                            <button v-if="isAdmin && activeCell.territory_id" @click="revokeTerritory"
+                                    class="bg-red-600/20 border border-red-600 text-red-500 py-2 rounded-xl text-[10px] font-bold uppercase mt-4 hover:bg-red-600 hover:text-white transition-all">
+                                Admin: ถอนกรรมสิทธิ์ที่ดิน
+                            </button>
+
+                            <button v-if="isAdmin" @click="showModal('adminMove')" class="border border-yellow-500/50 text-yellow-500 py-2 rounded-xl text-[10px] font-bold uppercase">
+                                Admin: สั่งย้ายนักผจญภัย
+                            </button>
+
+                            <button @click="closeModal" class="text-slate-500 text-sm mt-2">
+                                ปิดหน้าต่าง
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Modal -->
+            <div v-if="activeModal === 'profile'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-sm rounded-2xl p-8 text-center shadow-2xl">
+                    <img :src="profile?.avatar_url" class="w-24 h-24 mx-auto mb-4 rounded-full border-4 border-yellow-600 object-cover shadow-xl" @error="handleImageError">
+                    <h3 class="text-xl font-bold text-white">{{ profile?.character_name }}</h3>
+                    <p class="text-[10px] text-slate-500 mb-6 uppercase tracking-widest">{{ profile?.role }}</p>
+                    <div class="bg-slate-800 p-3 rounded-lg mb-6 text-left border border-slate-700">
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest">Real Name</p>
+                        <p class="text-sm font-bold text-slate-300">{{ profile?.real_name }}</p>
+                    </div>
+                    <div class="bg-slate-800 p-3 rounded-lg mb-6 text-left border border-slate-700">
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-2">Avatar URL</p>
+                        <input v-model="profileForm.avatar_url" type="url" placeholder="https://..."
+                               class="w-full bg-slate-700 p-2 rounded text-sm outline-none border border-slate-600 focus:border-yellow-600 text-white">
+                        <button @click="updateProfile" class="mt-2 w-full bg-yellow-600 py-2 rounded text-sm font-bold hover:bg-yellow-500 transition-all">
+                            บันทึกการเปลี่ยนแปลง
+                        </button>
+                    </div>
+                    <button @click="closeModal" class="w-full bg-slate-800 py-3 rounded-xl font-bold text-sm">
+                        กลับสู่การผจญภัย
+                    </button>
+                </div>
+            </div>
+
+            <!-- Manage Maps Modal -->
+            <div v-if="activeModal === 'manageMaps'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-4xl rounded-2xl p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+                    <h3 class="game-title text-purple-500 text-center mb-6 text-xl tracking-widest">MANAGE MAPS</h3>
+
+                    <div class="flex justify-between items-center mb-4">
+                        <button @click="showAddMapForm = true" class="bg-green-600 px-4 py-2 rounded-lg text-sm font-bold hover:bg-green-500 transition-all">
+                            ➕ เพิ่มแผนที่ใหม่
+                        </button>
+                        <button @click="closeModal" class="text-slate-500 text-sm hover:text-slate-400">
+                            ปิด
+                        </button>
+                    </div>
+
+                    <!-- Add Map Form -->
+                    <div v-if="showAddMapForm" class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 mb-6">
+                        <h4 class="text-yellow-500 font-bold mb-3">เพิ่มแผนที่ใหม่</h4>
+                        <div class="space-y-3">
+                            <input v-model="mapForm.name" type="text" placeholder="ชื่อแผนที่" class="w-full bg-slate-700 p-3 rounded-xl text-sm outline-none border border-slate-600 focus:border-yellow-600">
+                            <textarea v-model="mapForm.description" placeholder="รายละเอียดแผนที่" rows="3" class="w-full bg-slate-700 p-3 rounded-xl text-sm outline-none border border-slate-600 focus:border-yellow-600"></textarea>
+                            <input v-model="mapForm.image_url" type="url" placeholder="URL รูปภาพแผนที่" class="w-full bg-slate-700 p-3 rounded-xl text-sm outline-none border border-slate-600 focus:border-yellow-600">
+                            <div class="flex gap-2">
+                                <button @click="addMap" class="flex-1 bg-green-600 py-2 rounded-xl font-bold text-sm hover:bg-green-500">
+                                    เพิ่มแผนที่
+                                </button>
+                                <button @click="showAddMapForm = false; resetMapForm()" class="flex-1 bg-slate-700 py-2 rounded-xl text-sm font-bold">
+                                    ยกเลิก
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div v-for="map in maps" :key="map.id" class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-yellow-500 font-bold">{{ map.name }}</h4>
+                                <div class="flex gap-2">
+                                    <button @click="editMap(map)" class="text-blue-400 text-sm hover:text-blue-300">
+                                        แก้ไข
+                                    </button>
+                                    <button v-if="profile?.role === 'admin'" @click="confirmDeleteMap(map)" class="text-red-400 text-sm hover:text-red-300">
+                                        ลบ
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-2">{{ map.description }}</p>
+                            <img :src="map.image_url" class="w-full h-32 object-cover rounded-lg border border-slate-600" @error="handleImageError">
+                            <p class="text-[10px] text-slate-500 mt-2">ID: {{ map.id }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decoration Manager Modal -->
+            <div v-if="activeModal === 'decoManager'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-2xl p-6 shadow-2xl">
+                    <h3 class="game-title text-yellow-500 mb-4 text-center tracking-widest">DECORATION STORE</h3>
+                    <div class="space-y-4">
+                        <select v-model="decoForm.userId" class="w-full bg-slate-800 p-3 rounded-xl text-sm border border-slate-700 outline-none text-white">
+                            <option :value="null" disabled>เลือกนักผจญภัย</option>
+                            <option v-for="p in allProfiles" :key="p.id" :value="p.id">{{ p.character_name }}</option>
+                        </select>
+                        <div v-if="decoForm.userId" class="space-y-3">
+                            <select v-model="decoForm.decoId" class="w-full bg-slate-800 p-3 rounded-xl text-sm border border-slate-700 outline-none">
+                                <option value="none">ไม่มี (ล้างค่า)</option>
+                                <option value="glow">วงกลมเรืองแสง (Glow)</option>
+                            </select>
+                            <div v-if="decoForm.decoId === 'glow'" class="flex items-center gap-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                                <input v-model="decoForm.glowColor" type="color" class="w-12 h-10 bg-transparent border-none cursor-pointer">
+                                <span class="text-xs font-mono text-slate-400 uppercase tracking-tighter">{{ decoForm.glowColor }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 mt-6">
+                        <button @click="saveDecoration" class="flex-1 bg-yellow-600 py-3 rounded-xl font-bold text-sm">
+                            บันทึก
+                        </button>
+                        <button @click="closeModal" class="flex-1 bg-slate-800 py-3 rounded-xl text-sm font-bold">
+                            ปิด
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assign Territory Modal -->
+            <div v-if="activeModal === 'assignTerritory'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-sm rounded-2xl p-6 shadow-2xl text-center">
+                    <h3 class="game-title text-green-500 mb-4">มอบกรรมสิทธิ์ ({{ selectedCells.length }} ช่อง)</h3>
+                    <select v-model="territoryForm.ownerId" class="w-full bg-slate-800 p-3 rounded-xl mb-4 text-sm border border-slate-700 outline-none text-white">
+                        <option :value="null" disabled>เลือกผู้รับกรรมสิทธิ์</option>
+                        <option v-for="p in allProfiles" :key="p.id" :value="p.id">{{ p.character_name }}</option>
+                    </select>
+                    <div class="flex gap-2">
+                        <button @click="assignTerritory" class="flex-1 bg-green-600 py-2 rounded-xl font-bold">
+                            ยืนยัน
+                        </button>
+                        <button @click="closeModal" class="flex-1 bg-slate-800 py-2 rounded-xl">
+                            ยกเลิก
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Move Modal -->
+            <div v-if="activeModal === 'adminMove'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-sm rounded-2xl p-6 shadow-2xl">
+                    <h3 class="game-title text-red-500 mb-4">คำสั่งแอดมิน: ย้ายคน</h3>
+                    <select v-model="adminMoveForm.targetUserId" class="w-full bg-slate-800 p-3 rounded-xl mb-4 text-sm border border-slate-700 outline-none text-white">
+                        <option :value="null" disabled>-- เลือกตัวละคร --</option>
+                        <option v-for="p in allProfiles" :key="p.id" :value="p.id">{{ p.character_name }}</option>
+                    </select>
+                    <div class="flex gap-2">
+                        <button @click="adminMoveCharacter" class="flex-1 bg-red-600 py-2 rounded-xl font-bold">
+                            ย้ายทันที
+                        </button>
+                        <button @click="closeModal" class="flex-1 bg-slate-800 py-2 rounded-xl">
+                            ยกเลิก
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Map Modal -->
+            <div v-if="activeModal === 'editMap'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-2xl p-6 shadow-2xl">
+                    <h3 class="game-title text-blue-500 mb-4 text-center tracking-widest">EDIT MAP</h3>
+                    <div class="space-y-4">
+                        <input v-model="mapForm.name" type="text" placeholder="ชื่อแผนที่" class="w-full bg-slate-800 p-3 rounded-xl text-sm outline-none border border-slate-700 focus:border-yellow-600">
+                        <textarea v-model="mapForm.description" placeholder="รายละเอียดแผนที่" rows="3" class="w-full bg-slate-800 p-3 rounded-xl text-sm outline-none border border-slate-700 focus:border-yellow-600"></textarea>
+                        <input v-model="mapForm.image_url" type="url" placeholder="URL รูปภาพแผนที่" class="w-full bg-slate-800 p-3 rounded-xl text-sm outline-none border border-slate-700 focus:border-yellow-600">
+                        <div class="flex gap-2">
+                            <button @click="updateMap" class="flex-1 bg-blue-600 py-2 rounded-xl font-bold text-sm hover:bg-blue-500">
+                                บันทึก
+                            </button>
+                            <button @click="() => { closeModal(); resetMapForm(); }" class="flex-1 bg-slate-800 py-2 rounded-xl text-sm font-bold">
+                                ยกเลิก
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Map Modal -->
+            <div v-if="activeModal === 'deleteMap'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-sm rounded-2xl p-6 shadow-2xl text-center">
+                    <h3 class="game-title text-red-500 mb-4">ลบแผนที่</h3>
+                    <p class="text-slate-400 text-sm mb-6">คุณแน่ใจหรือไม่ที่จะลบแผนที่นี้? การกระทำนี้ไม่สามารถยกเลิกได้</p>
+                    <div class="flex gap-2">
+                        <button @click="deleteMap()" class="flex-1 bg-red-600 py-2 rounded-xl font-bold text-sm hover:bg-red-500">
+                            ลบแผนที่
+                        </button>
+                        <button @click="closeModal" class="flex-1 bg-slate-800 py-2 rounded-xl text-sm font-bold">
+                            ยกเลิก
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Management Modal -->
+            <div v-if="activeModal === 'mapManagement'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-2xl rounded-2xl p-6 shadow-2xl max-h-[80vh] overflow-y-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="game-title text-purple-500 tracking-widest">MAP MANAGEMENT</h3>
+                        <button @click="openModal('addMap')" class="bg-green-600 px-4 py-2 rounded-xl font-bold text-sm hover:bg-green-500">
+                            + เพิ่มแผนที่
+                        </button>
+                    </div>
+                    <div v-if="maps.length === 0" class="text-center py-8">
+                        <p class="text-slate-500">ไม่พบแผนที่</p>
+                    </div>
+                    <div v-else class="space-y-3">
+                        <div v-for="map in maps" :key="map.id" class="bg-slate-800 rounded-xl p-4 border border-slate-700">
+                            <div class="flex justify-between items-start">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-white mb-1">{{ map.name }}</h4>
+                                    <p class="text-slate-400 text-sm mb-2">{{ map.description }}</p>
+                                    <img :src="map.image_url" class="w-20 h-12 object-cover rounded-lg opacity-80" @error="handleImageError">
+                                </div>
+                                <div class="flex gap-2 ml-4">
+                                    <button @click="editMap(map)" class="bg-blue-600 px-3 py-1 rounded-lg font-bold text-xs hover:bg-blue-500">
+                                        แก้ไข
+                                    </button>
+                                    <button @click="() => confirmDeleteMap(map)" class="bg-red-600 px-3 py-1 rounded-lg font-bold text-xs hover:bg-red-500">
+                                        ลบ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end mt-6">
+                        <button @click="closeModal" class="bg-slate-800 px-6 py-2 rounded-xl font-bold">
+                            ปิด
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Owner Detail Modal -->
+            <div v-if="activeModal === 'ownerDetail'" class="fixed inset-0 modal-bg z-[100] flex items-center justify-center p-4">
+                <div class="bg-slate-900 border border-slate-800 w-full max-w-sm rounded-2xl p-6 shadow-2xl text-center">
+                    <h3 class="game-title text-green-500 mb-4">รายละเอียดเจ้าของกรรมสิทธิ์</h3>
+                    <div v-if="selectedOwner" class="space-y-3">
+                        <div class="flex justify-center">
+                            <img :src="selectedOwner.avatar_url" class="w-16 h-16 rounded-full border-2 border-yellow-500" @error="handleImageError">
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <p class="text-white font-bold">{{ selectedOwner.character_name }}</p>
+                            <p class="text-slate-400">ชื่อจริง: {{ selectedOwner.real_name || 'ไม่ระบุ' }}</p>
+                            <p class="text-slate-400">สถานะ: <span :class="selectedOwner.current_map_id ? 'text-green-400' : 'text-red-400'">
+                                {{ selectedOwner.current_map_id ? 'อยู่ในแผนที่' : 'ไม่อยู่ในแผนที่' }}
+                            </span></p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-6">
+                        <button @click="closeModal" class="bg-slate-800 px-6 py-2 rounded-xl font-bold">
+                            ปิด
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app_new.js"></script>
+</body>
+</html>
