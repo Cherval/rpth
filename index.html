@@ -13,12 +13,12 @@
 
     <style>
         body {
-            font-family: 'Sarabun', 'Kanit', sans-serif;
+            font-family: 'Sarabun', 'Cinzel', sans-serif;
             background: #020617;
             color: #f8fafc;
             overflow-x: hidden;
         }
-        .game-title { font-family: 'Cinzel', serif; }
+        .game-title { font-family: 'Sarabun', 'Cinzel', serif; }
         [v-cloak] { display: none; }
 
         /* Map System */
@@ -69,10 +69,24 @@
             border-radius: 50%;
             width: 100%;
             height: 100%;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
             z-index: 2;
             position: relative;
             border: 2px solid #fbbf24;
+            display: block;
+        }
+        /* Profile modal avatar fix */
+        .profile-modal-avatar {
+            width: 96px;
+            height: 96px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fbbf24;
+            box-shadow: 0 2px 12px #000a;
+            display: block;
+            margin: 0 auto 1rem auto;
         }
         .glow-effect {
             position: absolute;
