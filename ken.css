@@ -1,0 +1,229 @@
+/* CSS สำหรับนำไปแยกไฟล์บน GitHub 
+           ทุก Class จะขึ้นต้นด้วย ken- เพื่อป้องกัน Style Conflict
+        */
+        :root {
+            --ken-primary: #6366f1;
+            --ken-secondary: #a855f7;
+            --ken-text-main: #1f2937;
+            --ken-text-muted: #6b7280;
+            --ken-bg-soft: #f8fafc;
+            --ken-white: #ffffff;
+        }
+
+        .ken-wrapper {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            font-family: 'Sarabun', 'Tahoma', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ken-container {
+            max-width: 650px;
+            width: 100%;
+        }
+
+        /* Header Section */
+        .ken-header-card {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: var(--ken-white);
+            border-radius: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .ken-title {
+            margin: 0;
+            font-size: 32px;
+            background: linear-gradient(to right, var(--ken-primary), var(--ken-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .ken-subtitle {
+            margin: 8px 0 20px;
+            font-size: 18px;
+            color: var(--ken-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .ken-intro {
+            font-style: italic;
+            color: var(--ken-text-muted);
+            line-height: 1.7;
+            padding: 0 20px;
+        }
+
+        /* Wishlist Stack */
+        .ken-list-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* ใช้ความเจาะจงสูงเพื่อไม่ให้กระทบรายละเอียดอื่นในเว็บ */
+        .ken-list-stack details.ken-item {
+            background: var(--ken-white);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f1f5f9;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            overflow: hidden;
+        }
+
+        .ken-list-stack details.ken-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
+        }
+
+        .ken-list-stack summary.ken-summary {
+            list-style: none;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 17px;
+            color: var(--ken-text-main);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            outline: none;
+        }
+
+        .ken-list-stack summary.ken-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .ken-num {
+            color: var(--ken-primary);
+            margin-right: 12px;
+            font-weight: 800;
+        }
+
+        .ken-btn-badge {
+            font-size: 12px;
+            background: #f3f4f6;
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: var(--ken-text-muted);
+            font-weight: normal;
+        }
+
+        /* Content Area */
+        .ken-details-content {
+            padding: 0 20px 20px 52px;
+            color: var(--ken-text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+            border-top: 1px solid #f8fafc;
+            animation: kenFadeIn 0.3s ease-out;
+        }
+
+        @keyframes kenFadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ken-footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 13px;
+            color: var(--ken-text-muted);
+        }
+
+/* Container หลัก */
+        .ken2-rp-wrapper {
+            position: relative;
+            max-width: 600px;
+            width: 90%;
+            padding: 50px 20px;
+        }
+
+        /* ส่วนที่เป็นกระดาษวางเฉียง */
+        .ken2-paper-box {
+            background-color: var(--paper-bg);
+            padding: 40px;
+            color: var(--text-dark);
+            box-shadow: 10px 10px 25px var(--shadow-color), 
+                        -5px -5px 15px rgba(255, 255, 255, 0.5);
+            transform: rotate(-1.5deg); /* วางพาดเฉียง */
+            border-radius: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ส่วนเนื้อหาที่เลื่อนได้ */
+        .ken2-content-scroll {
+            height: 400px; /* กำหนดความสูง */
+            overflow-y: auto; /* เปิดสกรอลบาร์ */
+            overflow-x: hidden;
+            padding-right: 15px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* ปรับแต่งสกรอลบาร์ */
+        .ken2-content-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .ken2-content-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .ken2-content-scroll::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+        .ken2-content-scroll::-webkit-scrollbar-thumb:hover {
+            background: var(--highlight-orange);
+        }
+
+        /* หัวข้อ */
+        .ken2-rp-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            color: var(--text-dark);
+            transform: rotate(0.5deg);
+        }
+
+        /* ตัวหนาหรือไฮไลท์สีส้ม */
+        strong, b, .ken2-highlight {
+            color: var(--highlight-orange);
+            font-weight: 700;
+        }
+
+        /* ส่วนของปากกาลูกลื่น */
+        .ken2-pen-overlay {
+            position: absolute;
+            width: 200px; /* ปรับขนาดรูปปากกา */
+            bottom: -30px;
+            right: -40px;
+            z-index: 10;
+            transform: rotate(15deg);
+            pointer-events: none; /* เพื่อให้ไม่ขวางการคลิก */
+        }
+
+        .ken2-pen-overlay img {
+            width: 100%;
+            filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.2));
+        }
+
+        /* จุดเด่นเล็กๆ เหมือนรอยแม็กหรือกระดาษโน้ต */
+        .ken2-paper-box::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 15px;
+            background: rgba(255, 140, 0, 0.2);
+            border-radius: 2px;
+        }
